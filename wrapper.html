@@ -46,14 +46,13 @@
 	
 	header {
 		background: #2b3d5c;
-		height: 200px;
 	}
 	
 	header h1 {
-		background: url(//s.bsd.net/newsomlive/main/page/-/2015logo.jpg);
-		height: 118px;
-		width: 276px;
-		margin: 41px auto;	
+		padding-top: 42.753623188406%;
+		background: url(//s.bsd.net/newsomlive/main/page/-/2015logo.jpg) no-repeat;
+		background-size: cover;
+		margin: 7% auto;
 	}
 	
 	footer {
@@ -71,6 +70,7 @@
 	
 	footer #disclaimer {
 		border: 1px solid white;
+		margin-bottom: 0.5em;
 	}
 
 	footer #privacy a {
@@ -110,7 +110,11 @@
     
     <header>
 		<div class="container">
-			<h1 class="text-hide">Gavin Newsom for Governor</h1>
+			<div class="row">
+				<div class="col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-4">
+					<h1 class="text-hide">Gavin Newsom for Governor</h1>
+				</div>
+			</div>
 		</div>
     </header>
 
@@ -129,9 +133,11 @@
     
     <footer>
 		<div class="container">
-			<div id="copyright" class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-3 col-md-offset-0 text-center-xs text-left-md">&copy; 2015 Newsom for California</div>
-			<div id="disclaimer" class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-0 text-center-xs">Paid for by Newsom for California - Governor 2018.</div>
-			<div id="privacy" class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-3 col-md-offset-0 text-center-xs text-right-md"><a href="http://www.gavinnewsom.com/privacy-policy/">Privacy Policy</a></div>
+			<div class="row">
+				<div id="disclaimer" class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-0 col-md-push-3 text-center-xs">Paid for by Newsom for California - Governor 2018.</div>
+				<div id="copyright" class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-3 col-md-offset-0 col-md-pull-6 text-center-xs text-left-md">&copy; 2015 Newsom for California</div>
+				<div id="privacy" class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-3 col-md-offset-0 text-center-xs text-right-md"><a href="http://www.gavinnewsom.com/privacy-policy/">Privacy Policy</a></div>
+			</div>
 		</div>
     </footer>
 
