@@ -1,6 +1,6 @@
 <!-- Include wrapper div to help fitvides make player mobile responsive. -->
 
-<div id="fitvids-wrapper">																
+<div id="fitvids-wrapper" class="row container">																
 	<!-- The <iframe> (and video player) will replace this <div> tag. -->
 	<div id="player"></div>																	
 </div>
@@ -11,28 +11,23 @@
 
 <!-- Wrapper div for overlay. -->
 
-<div id="als_overlay" style="display: none;">												
-	<a href="https://secure.actblue.com">
-		<img src="//s.bsd.net/newsomlive/main/page/-/newsomvideo-2.png" class="img-responsive">
-	</a>
+<div id="als_overlay" class="modal fade" tabindex="-1" role="dialog">												
+	<div class="modal-dialog">
+		<div class="modal-content container-fluid">
+			<div class="row">
+				<a href="https://secure.actblue.com">
+					<img src="//s.bsd.net/newsomlive/main/page/-/newsomvideo-2.png" class="img-responsive">
+				</a>
+			</div>
+		</div>
+	</div>
 </div>
-
-<!-- Add jQuery -->
-
-<!-- <script type="text/javascript" src="//code.jquery.com/jquery-latest.min.js"></script> -->
-
-<!-- Add fancyBox -->
-
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" type="text/css" media="screen" />
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
 
 <!-- Add fitvids -->
 
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fitvids/1.1.0/jquery.fitvids.min.js"></script>
 
 <script>
-
-	var alsQuery = jQuery.noConflict();
 
 	// Sample code from https://developers.google.com/youtube/iframe_api_reference#Playback_status
 
@@ -59,8 +54,8 @@
 
 		// Activate fitvids.
 		
-		alsQuery(document).ready(function(){
-			alsQuery("#fitvids-wrapper").fitVids();
+		$(document).ready(function(){
+			$("#fitvids-wrapper").fitVids();
 		});
 
 	}
@@ -84,14 +79,8 @@
 			
 			// Activate fancybox overlay.
 			
-			alsQuery(document).ready(function() {
-				alsQuery.fancybox({
-					href: '#als_overlay',
-					openEffect	: 'fade',
-					closeEffect	: 'none',
-					padding : 0,
-					closeBtn: false
-				});
+			$(document).ready(function() {
+				$('#als_overlay').modal();
 			});
 		}
 	} 
@@ -145,7 +134,28 @@
 		box-shadow: 0px 0px 0px 0px rgba(174,114,10,1);
 	}	
 
-	.fancybox-skin { background: transparent; }
+	#als_overlay .modal-content { background: transparent; border: 0; }
+
+	/* Center modal vertically, per: http://stackoverflow.com/a/25160044/1998360 */
+	
+	.modal {
+	  text-align: center;
+	}
+
+	@media screen and (min-width: 768px) { 
+	  .modal:before {
+		display: inline-block;
+		vertical-align: middle;
+		content: " ";
+		height: 100%;
+	  }
+	}
+
+	.modal-dialog {
+	  display: inline-block;
+	  text-align: left;
+	  vertical-align: middle;
+	}
 
 </style>
 
