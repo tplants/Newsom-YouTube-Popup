@@ -1,13 +1,37 @@
 <!-- Include wrapper div to help fitvides make player mobile responsive. -->
 
-<div id="video-wrapper" class="embed-responsive embed-responsive-16by9">																
-	<!-- The <iframe> (and video player) will replace this <div> tag. -->
-	<div id="player"></div>																	
+<div class="row">
+	<div class="container">
+		<div id="video-wrapper" class="embed-responsive embed-responsive-16by9">																
+			<!-- The <iframe> (and video player) will replace this <div> tag. -->
+			<div id="player"></div>																	
+		</div>
+	</div>
 </div>
 
-<h2>Become a Golden State Member of Team Gavin!</h2>
+<div class="row">
+	<div class="container">
+		<a href="https://secure.actblue.com/contribute/page/monthly-sustainer?recurring=1&amounts=5,10,15,25,50,100&refcode=20150826-recurring">
+			<h2>Become a Golden State Member of Team Gavin!</h2>
+		</a>
+	</div>
+</div>
 
-<a href="https://secure.actblue.com/contribute/page/monthly-sustainer" class="btn btn-warning tk-brandon-grotesque">I&rsquo;m in</a>
+<div class="row">
+	<div class="container">
+		<p>
+			<a href="https://secure.actblue.com/contribute/page/monthly-sustainer?recurring=1&amounts=5,10,15,25,50,100&refcode=20150826-recurring" class="btn btn-warning tk-brandon-grotesque">I&rsquo;m in</a>
+		</p>
+	</div>
+</div>
+
+<div id="rules" class="row">
+	<div class="container">
+	<p><small>
+		Read the official rules and restrictions here: <a href="https://newsomlive.bsd.net/page/s/citizenville-rules">https://newsomlive.bsd.net/page/s/citizenville-rules</a>
+	</small></p>
+</div>
+</div>
 
 <!-- Wrapper div for overlay. -->
 
@@ -15,7 +39,7 @@
 	<div class="modal-dialog">
 		<div class="modal-content container-fluid">
 			<div class="row">
-				<a href="https://secure.actblue.com/contribute/page/monthly-sustainer">
+				<a href="https://secure.actblue.com/contribute/page/monthly-sustainer?recurring=1&amounts=5,10,15,25,50,100&refcode=20150826-recurring">
 					<img src="//s.bsd.net/newsomlive/main/page/-/newsomvideo-2.png" class="img-responsive">
 				</a>
 			</div>
@@ -85,6 +109,8 @@
 	  font-style: italic;
 	  font-weight: 700;
 	}
+	
+	#main-content { text-align: center; }
 
 	#main-content h2 {
 		font-size: 2.5em;
@@ -93,6 +119,10 @@
 		font-style: italic;
 		font-weight: 700;
 	}	
+	
+	#main-content a {
+		color: #2b3d5c;
+	}
 	
 	#main-content a.btn {
 		color: #2b3d5c;
@@ -122,7 +152,9 @@
 		-webkit-box-shadow: 0px 0px 0px 0px rgba(174,114,10,1);
 		-moz-box-shadow: 0px 0px 0px 0px rgba(174,114,10,1);
 		box-shadow: 0px 0px 0px 0px rgba(174,114,10,1);
-	}	
+	}
+	
+	#rules { margin-top: 6em; }	
 
 	#als_overlay .modal-content { background: transparent; border: 0; }
 
