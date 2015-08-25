@@ -52,6 +52,27 @@
 
 <script>
 
+	// Global variables
+	
+	var ytPlayerTimestamp = 0;
+	var ytPlayerTimestampInterval;
+	var player;
+		
+	// Function to start recording playback timestamp position every second.
+	
+	function startYTPlayerTimestamp() {
+		ytPlayerTimestampInterval = setInterval(function() {
+			ytPlayerTimestamp = player.getCurrentTime()
+			console.log('ytPlayerTimestamp: ' + ytPlayerTimestamp);
+		}, 1000);
+	}
+	
+	// Function to stop recording playback timestamp position every second.
+	
+	function clearYTPlayerTimestamp(i) {
+		clearInterval(ytPlayerTimestampInterval);
+	}
+
 	// Sample code from https://developers.google.com/youtube/iframe_api_reference#Playback_status
 
 	// 2. This code loads the IFrame Player API code asynchronously.
@@ -63,7 +84,6 @@
 
 	// 3. This function creates an <iframe> (and YouTube player)
 	//    after the API code downloads.
-	var player;
 	function onYouTubeIframeAPIReady() {
 		player = new YT.Player('player', {
 			height: '480',
@@ -86,19 +106,45 @@
 	// When video state changes...
 	
 	function onPlayerStateChange(event) {
+				
+		// If the video is playing...
 		
-		// If the video is paused or finished...
-		
-		if (									
-			event.data == YT.PlayerState.PAUSED
-			|| event.data == YT.PlayerState.ENDED
+		if ( event.data == YT.PlayerState.PLAYING ) {
+			
+			// Start recording playback timestamp position every second.
+			
+			startYTPlayerTimestamp();
+
+			// Close modal overlay.
+			
+			$(document).ready(function() {
+				$('#als_overlay').modal('hide');
+			});					
+
+		// Else, if the video is paused or finished AND the current timestamp is within 2 seconds of running timestamp... (i.e. User has not used the seek scrubber)	
+
+		} else if (								
+			( 
+				event.data == YT.PlayerState.PAUSED
+				|| event.data == YT.PlayerState.ENDED
+			)
+			&& (
+				Math.abs( player.getCurrentTime() - ytPlayerTimestamp ) < 2
+			)
 		) {
+					
+			// Stop recording playback timestamp position every second.
+			
+			clearYTPlayerTimestamp();
 			
 			// Activate modal overlay.
 			
 			$(document).ready(function() {
-				$('#als_overlay').modal();
+				$('#als_overlay').modal('show');
 			});
+		} else {
+			// In all other scenarioes, stop recording playback timestamp position every second.
+			clearYTPlayerTimestamp();
 		}
 	} 
 
