@@ -41,6 +41,7 @@
 	<div class="modal-dialog">
 		<div class="modal-content container-fluid">
 			<div class="row">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 				<a href="https://secure.actblue.com/contribute/page/monthly-sustainer?recurring=1&amounts=5,10,15,25,50,100&refcode=20150826-recurring-nd">
 					<img src="//s.bsd.net/newsomlive/main/page/-/newsomvideo-2.png" class="img-responsive">
 				</a>
@@ -67,7 +68,7 @@
 		player = new YT.Player('player', {
 			height: '480',
 			width: '853',
-			videoId: '0s7iuLkVflo',
+			videoId: '44owtBaehQc',
 			events: {
 				'onReady': onPlayerReady,
 				'onStateChange': onPlayerStateChange
@@ -159,26 +160,40 @@
 	#rules { margin-top: 6em; }	
 
 	#als_overlay .modal-content { background: transparent; border: 0; }
-
+	
+	#als_overlay button.close {
+		position: absolute;
+		right: 0.25em;
+		font-size: 2em;	
+	}
+	
+	#als_overlay img.img-responsive {
+		width: 100%;
+	}
+	
+	@media screen and (max-width: 767px) { 
+		#als_overlay button.close { font-size: 3em; }
+	}
+		
 	/* Center modal vertically, per: http://stackoverflow.com/a/25160044/1998360 */
 	
-	.modal {
-	  text-align: center;
-	}
-
 	@media screen and (min-width: 768px) { 
+		.modal {
+		  text-align: center;
+		}
+
 	  .modal:before {
 		display: inline-block;
 		vertical-align: middle;
 		content: " ";
 		height: 100%;
-	  }
-	}
+		}
 
-	.modal-dialog {
-	  display: inline-block;
-	  text-align: left;
-	  vertical-align: middle;
+		.modal-dialog {
+		  display: inline-block;
+		  text-align: left;
+		  vertical-align: middle;
+		}
 	}
 
 </style>
